@@ -21,6 +21,7 @@ public class Client_Molly {
     //and also because otherwise all clients share the same WebSocket connection.
 
     javax.swing.SwingUtilities.invokeLater(new Runnable() {
+      @Override
       public void run() {
         
         //the first time you have to create the user:        
