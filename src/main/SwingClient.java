@@ -116,7 +116,9 @@ public class SwingClient {
         }
         List<entity.Subscriber> subs = topicManager.mySubscriptions();
         for (entity.Subscriber sub : subs) {
-            my_subscriptions.put(sub.getTopic(), new SubscriberImpl(this));
+            Subscriber s = new SubscriberImpl(this);
+            WebSocketClient.addSubscriber(sub.getTopic()    , s);
+            my_subscriptions.put(sub.getTopic(), s);
         }
         
         refreshTopics();
@@ -318,6 +320,9 @@ public class SwingClient {
     }
     
 }
+
+
+
 
 
 
